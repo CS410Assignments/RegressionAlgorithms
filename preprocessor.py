@@ -1,8 +1,11 @@
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 class DataLoader:
-	def __init__(self, X, Y, split_ratio=0.25):
+	def __init__(self, file_path, split_ratio=0.25):
+		df = pd.read_csv(file_path) 
+		X, Y = df.iloc[:, :-1].values, df.iloc[:,-1].values  
 		self.split_ratio = split_ratio
 		self.X = X
 		self.Y = Y

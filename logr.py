@@ -7,6 +7,9 @@ class LogisticRegression:
 		self.C = C 
 		self.classifier = None
 
+	def get_details(self): 
+		return ("LogR", "C = " + str(self.C) + ", Solver = '" + self.solver + "'") 
+
 	def fit(self, X_train, y_train): 	
 		classifier = logistic_regression(random_state = 0, C=self.C, solver=self.solver, multi_class='auto')
 		classifier.fit(X_train, y_train)
